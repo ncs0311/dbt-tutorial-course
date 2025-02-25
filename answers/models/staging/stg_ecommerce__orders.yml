@@ -26,7 +26,8 @@ models:
               where: "status = 'Returned'"
           - dbt_utils.expression_is_true:
               expression: ">= delivered_at"
-              where: "delivered_at IS NOT NULL AND returned_at IS NOT NULL"
+              config:
+                where: "delivered_at IS NOT NULL AND returned_at IS NOT NULL"
 
       - name: delivered_at
         description: "When the order was delivered"
